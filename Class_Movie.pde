@@ -1,17 +1,18 @@
-// so that in the larger timeline, we can zoom in even further to a mini timeline which will contain all the books (the in date timeline)
 class Movie{
     String title;
     String genres;
     int year;
     float rating;
     int votes;
+    String tconst;
 
-    Movie(int year, float rating, int votes, String title, String genres){
+    Movie(int year, float rating, int votes, String title, String genres, String tconst){
         this.rating = rating;
         this.votes = votes;
         this.genres = genres;
         this.year = year;
         this.title = title;
+        this.tconst = tconst;
     }
 
     // Setter for title
@@ -32,6 +33,16 @@ class Movie{
     // Getter for genres
     String getGenres() {
         return genres;
+    }
+    
+    // Setter for tconst
+    void setTconst(String tconst) {
+        this.tconst = tconst;
+    }
+
+    // Getter for tconst
+    String getTconst() {
+        return tconst;
     }
 
     // Setter for year

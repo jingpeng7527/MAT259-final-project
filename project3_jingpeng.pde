@@ -23,83 +23,66 @@ ControlP5 cp5;
 
 PFont font;
 
-
 int startYear = 2020;
 int endYear = 2023;
 
+int[] fontSize = {280, 14, 12};
+int[] fontColor = {240, 180};
+
 float radiusMultiplier = 100; // Multiplier for percentage-based radius
-float minRadius = 100; // Minimum radius for points
+float minRadius = 300; // Minimum radius for points
 float maxRadius = 200; // Maximum radius for points
 float Radius = 200;
 float radius = 300;
 PVector[] points;
-color[] categoryColors = {#b7e1cd, #d7b5e8, #f4f1bb, #f9d0c4, #a6c8ed};
+color[] categoryColors = {#FFC0CB, #FFE5B4, #ADD8E6, #F0FFF0, #E6E6FA, #FFDAB9, #87CEEB, #FFFFE0, #E6E6FA, #90EE90, #B0E0E6, #FFDAB9, #C8A2C8, #AFEEEE, #FFFFCC, #F0DC82};
 int[] kind;
 
 
 Table table;
 int numRows, numColumns;
 
-Map<Integer, ArrayList<Movie>> map = new HashMap<Integer,ArrayList<Movie>>();
-List<List<PVector>> listAll = new ArrayList<>();
+// Colors
+color background = color(30);
+color foreground = color(225);
+
+// Result of search keywords
+List<String> selectedKeywords = new ArrayList();
+
+// Entered text
+String textValue = "";
+
+// Save the movies of different year
+//Map<Integer, ArrayList<Movie>> map = new HashMap<Integer,ArrayList<Movie>>();
+//List<List<PVector>> listAll = new ArrayList<>();
+
+Map<String, Movie> map = new HashMap<>();
+
+ArrayList<Movie> list = new ArrayList<>();
 
 void setup() {
-  size(1000, 800, P3D);
-  font = createFont("Georgia", 100);
-  cam = new PeasyCam(this, 300);
+  size(1250, 800, P3D);
+  font = createFont("Arial", 100);
+  cam = new PeasyCam(this, 1000);
   // cam.setMinimumDistance(50);
   // cam.setMaximumDistance(800);
   cp5 = new ControlP5(this);
 
   loadData();
+  //drawInfo();
+  constructGUI();
 }
 
 void draw() {
+  background(background);
+  selectedKeywords.clear();
 
-  background(0,0,0);
-  // gui();
-
-  noFill();
-  stroke(0);
-
-  // hint(DISABLE_DEPTH_TEST);
-  //  cam.beginHUD();
-  //  cp5.draw();
-
-
-  for(int year: map.keySet()){
-    
     pushMatrix();
-    // translate(x, y, 0);
-
-    drawPoints(year);
-
-    // drawCircleAndText();
-    // drawLines(k);
-    // drawVertex(k);
+    drawPoints();
 
     popMatrix();
-    //drawLabels();
 
-    
-  }
+  //drawAxis();
+    drawGUI();
 
-  // cam.endHUD();
-  //  hint(ENABLE_DEPTH_TEST);
-  
-
-  //if((mouseX<180) & (mouseY<180)) {
-  //  cam.setActive(false);
-  //} else {
-  //  cam.setActive(true);
-  //}
-
-}
-
-void gui() {
-   hint(DISABLE_DEPTH_TEST);
-   cam.beginHUD();
-   cp5.draw();
-   cam.endHUD();
-   hint(ENABLE_DEPTH_TEST);
 }
