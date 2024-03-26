@@ -319,7 +319,7 @@ public void drawPoints(){
         textFont(font, titleSize);
         
          try{
-              if(textValue.equals("")){
+              if("".equals(textValue)){
                 cp5.get(ScrollableList.class, "dropdown").hide();
                 fill(foreground, 100);
                 textSize(titleSize);   
@@ -357,35 +357,35 @@ public void drawPoints(){
 
 }
 public int pickColor(String genre){
-  if(genre.equals("Action"))
+  if("Action".equals(genre))
     return categoryColors[15];
-  else if(genre.equals("Adventure"))
+  else if("Adventure".equals(genre))
     return categoryColors[0];
-  else if(genre.equals("Animation"))
+  else if("Animation".equals(genre))
     return categoryColors[1];
-  else if(genre.equals("Biography"))
+  else if("Biography".equals(genre))
     return categoryColors[2];
-  else if(genre.equals("Comedy"))
+  else if("Comedy".equals(genre))
     return categoryColors[3];
-  else if(genre.equals("Crime"))
+  else if("Crime".equals(genre))
     return categoryColors[4];
-  else if(genre.equals("Documentary"))
+  else if("Documentary".equals(genre))
     return categoryColors[5];
-  else if(genre.equals("Drama"))
+  else if("Drama".equals(genre))
     return categoryColors[6];
-  else if(genre.equals("Family"))
+  else if("Family".equals(genre))
     return categoryColors[7];
-   else if(genre.equals("Fantasy"))
+   else if("Fantasy".equals(genre))
     return categoryColors[8];
-   else if(genre.equals("History"))
+   else if("History".equals(genre))
     return categoryColors[9];
-   else if(genre.equals("Horror"))
+   else if("Horror".equals(genre))
     return categoryColors[10];
-    else if(genre.equals("Mystery"))
+    else if("Mystery".equals(genre))
     return categoryColors[11];
-    else if(genre.equals("Romance"))
+    else if("Romance".equals(genre))
     return categoryColors[12];
-   else if(genre.equals("Sci-Fi"))
+   else if("Sci-Fi".equals(genre))
     return categoryColors[13];
    else
     return categoryColors[14];
